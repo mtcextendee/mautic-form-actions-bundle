@@ -4,6 +4,10 @@ Plugin allow save to any fields custom string processign by twig syntax from for
 
 `{{ formfield.firstname }} {{ formfield.lastname }}`
 
+Another example of twig syntax
+
+`{{formfield.firstname}}x{{formfield.email|slice(0, 4)}}`
+
 Of course, you are able to process data with any twig feature, you can truncate data etc.
 
 ## Installation
