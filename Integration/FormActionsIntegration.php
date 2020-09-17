@@ -23,7 +23,7 @@ class FormActionsIntegration extends AbstractIntegration
 
     public function getDisplayName()
     {
-        return 'Contact Actions';
+        return 'Form Actions';
     }
 
     public function getAuthenticationType()
@@ -50,23 +50,6 @@ class FormActionsIntegration extends AbstractIntegration
     public function appendToForm(&$builder, $data, $formArea)
     {
         if ($formArea == 'features') {
-            $builder->add(
-                'isocCountryCodeField',
-                LeadFieldsType::class,
-                [
-                    'label'                 => 'mautic.formactions.sync.country_iso_code',
-                    'label_attr'            => ['class' => 'control-label'],
-                    'multiple'              => false,
-                    'with_company_fields'   => false,
-                    'with_tags'             => false,
-                    'with_utm'              => false,
-                    'empty_value'           => 'mautic.core.select',
-                    'attr'                  => [
-                        'class'    => 'form-control',
-                    ],
-                    'required'    => false,
-                ]
-            );
         }
     }
 }

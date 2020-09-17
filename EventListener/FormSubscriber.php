@@ -90,6 +90,10 @@ class FormSubscriber implements EventSubscriberInterface
 
     public function saveContactField(SubmissionEvent $event)
     {
+        if (!$this->formActionsSettings->isEnabled()) {
+            return;
+        }
+
         $results = $event->getSubmission()->getResults();
         $lead    = $event->getSubmission()->getLead();
         $config = $event->getActionConfig();
