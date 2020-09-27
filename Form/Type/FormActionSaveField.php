@@ -31,7 +31,7 @@ class FormActionSaveField extends AbstractType
             'field',
             LeadFieldsType::class,
             [
-                'label'                 => 'mautic.form.field.section.leadfield',
+                'label'                 => 'mautic.formactions.contact.field.to.save',
                 'label_attr'            => ['class' => 'control-label'],
                 'multiple'              => false,
                 'with_company_fields'   => false,
@@ -58,6 +58,7 @@ class FormActionSaveField extends AbstractType
                 'label_attr'            => ['class' => 'control-label'],
                 'attr'                  => [
                     'class'    => 'form-control',
+                    'tooltip' => 'mautic.formactions.syntax.desc'
                 ],
                 'required'    => true,
                 'constraints' => [

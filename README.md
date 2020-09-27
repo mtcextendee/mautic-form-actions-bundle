@@ -6,9 +6,16 @@ Plugin allow save to any fields custom string processign by twig syntax from for
 
 Another example of twig syntax
 
-`{{formfield.firstname}}x{{formfield.email|slice(0, 4)}}`
+- `{{formfield.email|slice(0, 4)}}` - four letters from email
+- `{{ formfield.email|split('@')|last }}` - domain of provider from email address - string after @
+- `{{ formfield.email|split('@')|first }}` - string before @ from email address
 
-Of course, you are able to process data with any twig feature, you can truncate data etc.
+Of course, you are able to process data with any twig feature, you are able to  transform/truncate data etc.
+
+#### Allowed tags in syntax
+
+- {{ formfield.alias }}  - any field from submitted form
+- {{ contactfield.alias }} - any contact fields
 
 ## Installation
 
@@ -18,10 +25,10 @@ Of course, you are able to process data with any twig feature, you can truncate 
 2. Unzip files to plugins/MauticFormActionsBundle
 3. Clear cache (app/cache/prod/)
 4. Go to /s/plugins/reload
+5. Enable Form Actions
+6. Go to forms, create form and see new Form Save actions option in actions tab
 
-### Usage
-
-{{formfield.firstname}} {{formfield.email|slice(0, 4)}}
+<img src="https://user-images.githubusercontent.com/462477/94358620-b0739980-00a2-11eb-9bf1-07af4518967a.png" width="500">
 
 ### Credits
 
