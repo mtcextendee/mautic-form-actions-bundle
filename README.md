@@ -1,6 +1,6 @@
 # Form Actions
 
-Plugin allow save to any fields custom string processign by twig syntax from form fields and contact fields. For example you are able to save to contact field full name with twig syntax
+Plugin allow save to contact field any custom string from form. You're able to use form submitted data and contact fields processed by twig syntax. For example you are able to save to contact field full name with twig syntax:
 
 `{{ formfield.firstname }} {{ formfield.lastname }}`
 
@@ -10,9 +10,9 @@ Another example of twig syntax
 - `{{ formfield.email|split('@')|last }}` - domain of provider from email address - string after @
 - `{{ formfield.email|split('@')|first }}` - string before @ from email address
 
-Of course, you are able to process data with any twig feature, you are able to  transform/truncate data etc.
+Of course, you are able to process data with any twig feature, you are able to transform/truncate data etc.
 
-#### Allowed tags in syntax
+#### Allowed custom tags in syntax
 
 - {{ formfield.alias }}  - any field from submitted form
 - {{ contactfield.alias }} - any contact fields
