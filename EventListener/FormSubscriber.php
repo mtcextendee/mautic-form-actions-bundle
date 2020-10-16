@@ -103,6 +103,10 @@ class FormSubscriber implements EventSubscriberInterface
             'contactfield' => $lead->getProfileFields(),
         ];
 
+        // TWIG filter json_decode
+        $this->twig->addFilter(new \Twig_SimpleFilter('unescape', function ($string) {
+            return html_entity_decode($string);
+        }));
 
         $this->leadModel->setFieldValues(
             $lead,

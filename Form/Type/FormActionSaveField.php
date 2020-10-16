@@ -37,7 +37,7 @@ class FormActionSaveField extends AbstractType
                 'with_company_fields'   => false,
                 'with_tags'             => false,
                 'with_utm'              => false,
-                'empty_value'           => 'mautic.core.select',
+                'placeholder'           => 'mautic.core.select',
                 'attr'                  => [
                     'class'    => 'form-control',
                 ],
