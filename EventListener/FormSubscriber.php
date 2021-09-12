@@ -24,6 +24,8 @@ use MauticPlugin\MauticFormActionsBundle\Integration\FormActionsSettings;
 use MauticPlugin\MauticFormActionsBundle\Model\FormActionsModel;
 use MauticPlugin\MauticFormActionsBundle\Trigger\TriggerFactory;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Twig\Environment;
+use Twig\TwigFilter;
 
 class FormSubscriber implements EventSubscriberInterface
 {
@@ -33,7 +35,7 @@ class FormSubscriber implements EventSubscriberInterface
     private $formActionsSettings;
 
     /**
-     * @var \Twig_Environment
+     * @var Environment
      */
     private $twig;
 
@@ -51,13 +53,13 @@ class FormSubscriber implements EventSubscriberInterface
      * LeadSubscriber constructor.
      *
      * @param FormActionsSettings $formActionsSettings
-     * @param \Twig_Environment   $twig
+     * @param Environment   $twig
      * @param FieldModel          $fieldModel
      * @param LeadModel           $leadModel
      */
     public function __construct(
         FormActionsSettings $formActionsSettings,
-        \Twig_Environment $twig,
+        Environment $twig,
         FieldModel $fieldModel,
         LeadModel $leadModel
     ) {
@@ -104,7 +106,7 @@ class FormSubscriber implements EventSubscriberInterface
         ];
 
         // TWIG filter json_decode
-        $this->twig->addFilter(new \Twig_SimpleFilter('unescape', function ($string) {
+        $this->twig->addFilter(new TwigFilter('unescape', function ($string) {
             return html_entity_decode($string);
         }));
 
