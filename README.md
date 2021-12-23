@@ -1,4 +1,4 @@
-# Form Actions for Mautic 4, Mautic3 and Mautic2
+# Form Actions for Mautic
 
 
 Plugin allow save to contact field any custom string from form. You're able to use form submitted data and contact fields processed by twig syntax. For example you are able to save to contact field full name with twig syntax:
