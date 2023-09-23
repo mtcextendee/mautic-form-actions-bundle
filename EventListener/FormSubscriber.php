@@ -105,11 +105,20 @@ class FormSubscriber implements EventSubscriberInterface
             'contactfield' => $lead->getProfileFields(),
         ];
 
-        // TWIG filter json_decode
-        $this->twig->addFilter(new TwigFilter('unescape', function ($string) {
-            return html_entity_decode($string);
-        }));
+        
+        // Register filter only once
+        $isFilterRegistered = false;
+        if ($isFilterRegistered == true) {
+        
+            // TWIG filter json_decode
+            $this->$twig->addFilter(new TwigFilter('unescape', function ($string) {
+                return html_entity_decode($string);
+            }));
 
+            // Set the flag to true after registering
+            $isFilterRegistered = true;
+        }
+        
         $this->leadModel->setFieldValues(
             $lead,
             [$config['field'] => $this->twig->createTemplate($config['syntax'])->render($fields)],
